@@ -2,11 +2,15 @@
 
 from twilio.rest import TwilioRestClient
 import sys, time
+def help_():
+        print 'Por favor, informe os campos abaixo:\n\n\
+"account" "token" "number-twilio" "number-you" "url-voice"\n\n\
+exemplo: python telefone.py "AC0630f7a85ddb" "0fb97b000" "55XXXXXXXXXX" "55XXXXXXXX" "http://twimlets.com/holdmusic?Bucket=XXX"'
 
 try:
         recebe=sys.argv[1]
-        if (str(recebe) == "help"):
-                case_default()
+        if (str(recebe) == 'help'):
+                help_()
         else:
                 account = sys.argv[1]
                 token = sys.argv[2]
@@ -27,9 +31,11 @@ try:
                         print ("Error1")
 except:
         print "'Digite help para obter ajuda'"
-
-b=status=call.COMPLETED
-print b
-if b == 'completed':
-        time.sleep(45)
-        call.hangup()
+try:
+        b=status=call.COMPLETED
+        print b
+        if b == 'completed':
+                time.sleep(60)
+                call.hangup()
+except:
+        print ""
